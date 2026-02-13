@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>С 14 февраля, Карина 💕</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ffeef5, #ffeef5);
+        text-align: center;
+        color: #5a3e4b;
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 2.8em;
+    }
+
+    h2 {
+        font-weight: normal;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        background: white;
+        max-width: 600px;
+        margin: 30px auto;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    img {
+        max-width: 250px;
+        border-radius: 20px;
+        margin: 15px 0;
+    }
+
+    button {
+        background: #ff8fb1;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 25px;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ff6f9f;
+    }
+
+    .hidden-message {
+        display: none;
+        margin-top: 20px;
+        font-size: 18px;
+    }
+
+    footer {
+        margin-top: 50px;
+        font-size: 14px;
+        opacity: 0.7;
+    }
+
+    /* Падающие сердечки */
+    .heart {
+        position: fixed;
+        top: -10px;
+        font-size: 20px;
+        animation: fall linear infinite;
+        color: #ff6fa5;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(100vh);
+        }
+    }
+
+    @media (max-height: 750px) {
+        h1 { font-size: 24px; }
+        h2 { font-size: 16px; }
+        img { width: 170px; }
+        .card { padding: 15px; }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>для люимого котака</h1>
+    <h2>спасибо что ты есть <3</h2>
+
+    <div class="card">
+        <h3>US </h3>
+
+        <img src="mi2.png" alt="Pusheen love">
+
+        <p>
+            я рад что встретил тебя котик, пусть дальше у нас все было хорошо 💖
+        </p>
+
+        <button onclick="showMessage()">жми</button>
+
+        <div class="hidden-message" id="message">
+            очень люблю тебя <33
+        </div>
+    </div>
+
+    <footer>
+        for kotak
+    </footer>
+
+</div>
+
+<script>
+function showMessage() {
+    document.getElementById("message").style.display = "block";
+}
+
+function loveCounter() {
+    let number = Math.floor(Math.random() * 1000) + 1000;
+    document.getElementById("counter").innerText =
+        "Больше чем " + number + " раз в день 💖";
+}
+
+/* Генерация падающих сердечек */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
